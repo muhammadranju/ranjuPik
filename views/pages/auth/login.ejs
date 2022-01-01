@@ -8,8 +8,13 @@
         <div class="row justify-content-center">
             <div class="card-wrapper col-lg-40 col-md-6">
                 <% if(flashMessage.success){ %>
-                <div class=" alert alert-danger" id="alerts" font-size-sm" role="alert">
-                    Credentials Doesn't Match ! Email/Password
+                <div class=" alert alert-danger alert-dismissible fade show" role="alert" id="alerts" font-size-sm"
+                    role="alert">
+                    <strong>Credentials Doesn't Match !</strong> Email/Password
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <% } %>
                 <div class="card fat">
@@ -17,8 +22,9 @@
                     <div class="card-body ">
                         <p class="float-right">
                             <span class="font-size-sm">or
-                                <a href="/authentic/signup" class="font-size-sm text-hover-effect">Create an
-                                    account</a>
+                                <a href="/authentic/signup" class="font-size-sm text-hover-effect">
+                                    Create an account
+                                </a>
                             </span>
                         </p>
                         <h5 class="card-title font-weight-bold mb-4">Log in</h5>
@@ -49,7 +55,7 @@
                                 </div><a class="font-size-sm text-hover-effect" href="/authentic/forgot-password">Forgot
                                     password?</a>
                             </div>
-                            <input type="submit" name="" value="Log in" class="btn btn-primary btn-block">
+                            <input type="submit" name="" value="Log in" id="loginBtn" class="btn btn-primary btn-block">
                         </form>
                     </div>
                 </div>
@@ -63,6 +69,8 @@
 
 <%- include('../partials/footer.ejs') %>
 <script src="/script/passwordHide.js"></script>
+<script src="/ajax/loginAxios.js"></script>
+
 </body>
 
 </html>

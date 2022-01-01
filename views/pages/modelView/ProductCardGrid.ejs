@@ -1,11 +1,11 @@
-<div class="container pb-5 mb-2 mt-2 " style="background-color: #fff;">
+<div class="container pb-5 mb-2 mt-2 ">
     <div class="row pt-3 mx-n2">
         <!-- Product card (Grid) -->
         <% for(let p of imgs){ %>
         <div class="card product-card  col-lg-3 col-md-4 col-sm-4 mt-3 rounded-lg">
             <a class="card-img-top d-block mb-3" href="/posts/products">
 
-                <img data-src=" <%= p.img %>  " src="/images/lazyload/pikslide-lazyload.jpg"
+                <img data-src=" <%= p.img %>" loading="lazy" src="/images/lazyload/pikslide-lazyload.jpg"
                     class="card-img-top mt-3 lazyload" alt="Product">
             </a>
             <div class="my-2 mx-2 ">

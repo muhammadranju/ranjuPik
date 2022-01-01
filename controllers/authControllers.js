@@ -115,7 +115,7 @@ authRoutes.loginPostControllers = async (req, res, next) => {
       //       return next(err);
       //    }
       // });
-      return res.redirect("/users/setting");
+      return res.redirect("/users/profile");
    } catch (e) {
       console.log(e);
    }

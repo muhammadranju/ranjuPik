@@ -8,12 +8,13 @@
         <div class="card text-center mt-3">
             <div class="card-body">
                 <a href="/users/profile">
-                    <img class="d-inline-block rounded-circle mb-3 lazyload" width="96" data-src="/images/team/02.jpg"
-                        src="/images/team/02.jpg" alt="Richard Williams" />
+                    <img class="d-inline-block rounded-circle mb-3 lazyload" id="profilePics" width="96"
+                        data-src="/uploads/default.png" src="/uploads/default.png" alt="Richard Williams" />
                 </a>
 
                 <h4 class="pt-1 font-weight-bold mb-1">Muhammad Ranju</h4>
-                <a class="nav-link-style font-weight-bold mb-5" href="mailto:pikslide@gmail.com">pikslide@gmail.com
+                <a class="nav-link-style font-weight-bold mb-5" target="_black"
+                    href="mailto:pikslide@gmail.com">pikslide@gmail.com
                 </a>
 
                 <div class="mb-3 mt-2 d-flex justify-content-center">
@@ -27,7 +28,7 @@
                     <button type="button" class="btn btn-primary btn-shadow btn-sm font-weight-bold">Follow</button>
                     <% } %>
                     <% if(isLogin){ %>
-                    <a href="/users/setting" type="button" class="btn btn-outline-primary btn-sm font-weight-bold">Edit
+                    <a href="/users/edit" type="button" class="btn btn-outline-primary btn-sm font-weight-bold">Edit
                         Profile</a>
                     <% } %>
                 </div>

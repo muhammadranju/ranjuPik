@@ -15,6 +15,7 @@ const userSchema = new Schema(
          type: String,
          trim: true,
          required: true,
+         lowercase: true,
       },
       password: {
          type: String,
@@ -23,6 +24,10 @@ const userSchema = new Schema(
       profile: {
          type: Schema.Types.ObjectId,
          ref: "Profile",
+      },
+      profilePics: {
+         type: String,
+         default: "/uploads/default.png",
       },
    },
    {

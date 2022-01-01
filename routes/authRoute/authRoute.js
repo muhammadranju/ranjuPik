@@ -36,6 +36,6 @@ router.post("/forgot-password", forgotPasswordPostControllers);
 router.get("/verify", isUnAuthenticated, verifyGetControllers);
 router.post("/verify", verifyPostControllers);
 
-// router.get("/logout", logoutGetControllers);
+router.get("/logout", logoutGetControllers);
 
 module.exports = router;

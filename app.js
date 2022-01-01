@@ -8,7 +8,7 @@ const setMiddlewere = require("./middleware/middlewere");
 const setRoutes = require("./routes/routes");
 const app = express();
 
-// Setup view engine
+//Setup view engine
 app.set("view engine", "ejs");
 app.set("views", "views");
 
@@ -22,24 +22,24 @@ setMiddlewere(app); //Useing Middleware from Middleware Folder
 
 setRoutes(app); //Useing Routes from Routes Folder
 
-// app.use((req, res, next) => {
-//    let error = new Error("404 Page Not Found");
-//    error.status = 404;
-//    next(error);
-// });
-// app.use((error, req, res, next) => {
-//    if (error.status === 404) {
-//       return res.status(404).render("pages/errorPage/404Error", {
-//          title: "404 - Unlimited Templates, Themes and More",
-//       });
-//    }
-//    res.status(500).render("pages/errorPage/500Error", {
-//       title: "500 - Internal Server Error",
-//    });
-// });
+app.use((req, res, next) => {
+   let error = new Error("404 Page Not Found");
+   error.status = 404;
+   next(error);
+});
+app.use((error, req, res, next) => {
+   if (error.status === 404) {
+      return res.status(404).render("pages/errorPage/404Error", {
+         title: "404 - Unlimited Templates, Themes and More",
+      });
+   }
+   res.status(500).render("pages/errorPage/500Error", {
+      title: "500 - Internal Server Error",
+   });
+});
 
 mongoose // Mongodb datadase connection
-   .connect(config.get("mongodb_uri"), {
+   .connect(config.get("mongodb_uri") || "mongodb://localhost:27017/userDB", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
    })

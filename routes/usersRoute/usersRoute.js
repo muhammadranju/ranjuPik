@@ -1,56 +1,56 @@
 const express = require("express");
 const usersRoute = express.Router();
 
+const {
+   getHome,
+   getProfile,
+   getSetting,
+   postSetting,
+   getSettingEdit,
+   postSettingEdit,
+   getUpload,
+   postUpload,
+   getEditPost,
+   postEditPost,
+   getDownload,
+   getBookmark,
+   getSeles,
+   getEmail,
+   getBilling,
+   getCart,
+} = require("../../controllers/userControllers");
 const { isAuthenticated } = require("../../middleware/authMiddleware");
 
-usersRoute.get("/", (req, res) => {
-   res.redirect("/");
-});
+usersRoute.get("/", getHome);
 
-usersRoute.get("/profile", (req, res) => {
-   res.status(200).render("pages/users/userProfile", {
-      title: "Muhammad Ranju - Pikslide",
-   });
-});
-usersRoute.get("/setting", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userSettings", {
-      title: "Setting",
-   });
-});
-usersRoute.get("/upload", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userProductUpload", {
-      title: "Pikslide Submission",
-   });
-});
-usersRoute.get("/downloads", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userMyDownloads", {
-      title: "Downloads",
-   });
-});
-usersRoute.get("/bookmark", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userBookmark", {
-      title: "Your Bookmark",
-   });
-});
-usersRoute.get("/sales", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userSales", {
-      title: "Seles",
-   });
-});
-usersRoute.get("/email_setting", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userEmail", {
-      title: "Email Setting",
-   });
-});
-usersRoute.get("/billing", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userBilling", {
-      title: "Billing",
-   });
-});
-usersRoute.get("/mycart", isAuthenticated, (req, res) => {
-   res.status(200).render("pages/users/userMycart", {
-      title: "My Cart",
-   });
-});
+usersRoute.get("/profile", getProfile);
+
+usersRoute.get("/setting", isAuthenticated, getSetting);
+
+usersRoute.post("/setting", isAuthenticated, postSetting);
+
+usersRoute.get("/edit", isAuthenticated, getSettingEdit);
+
+usersRoute.post("/edit", isAuthenticated, postSettingEdit);
+
+usersRoute.get("/upload", isAuthenticated, getUpload);
+
+usersRoute.post("/upload", isAuthenticated, postUpload);
+
+usersRoute.get("/edit-post", isAuthenticated, getEditPost);
+
+usersRoute.post("/edit-post", isAuthenticated, postEditPost);
+
+usersRoute.get("/downloads", isAuthenticated, getDownload);
+
+usersRoute.get("/bookmark", isAuthenticated, getBookmark);
+
+usersRoute.get("/sales", isAuthenticated, getSeles);
+
+usersRoute.get("/email_setting", isAuthenticated, getEmail);
+
+usersRoute.get("/billing", isAuthenticated, getBilling);
+
+usersRoute.get("/mycart", isAuthenticated, getCart);
 
 module.exports = usersRoute;

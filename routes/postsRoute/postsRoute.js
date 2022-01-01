@@ -1,15 +1,10 @@
 const express = require("express");
 const postsRoute = express.Router();
 
-postsRoute.get("/", (req, res) => {
-   res.status(200).render("pages/posts/allProduct", {
-      title: "Posts Product",
-   });
-});
-postsRoute.get("/products", (req, res) => {
-   res.status(200).render("pages/posts/singleProduct", {
-      title: "New Social Media Poster",
-   });
-});
+const { getPosts, getProducts } = require("../../controllers/postsControllers");
+
+postsRoute.get("/", getPosts);
+
+postsRoute.get("/products", getProducts);
 
 module.exports = postsRoute;
